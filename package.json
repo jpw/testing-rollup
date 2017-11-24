@@ -1,0 +1,16 @@
+{
+  "name": "rollup-test",
+  "version": "1.0.0",
+  "description": "test using rollup to create ES5 & 6 bundles",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/rollup/bin/rollup resources/index.js --o public/bundle-es6.js --f es && ./node_modules/google-closure-compiler-js/cmd.js --warningLevel VERBOSE public/bundle-es6.js > public/bundle-es5.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "google-closure-compiler-js": "^20170910.0.1",
+    "rollup": "^0.51.8"
+  }
+}

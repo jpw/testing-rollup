@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>testing rollup</title>
+	<!-- to load modules individually (if using http2): <script type="module" src="resources/index.js"></script> -->
+	<script type="module" src="bundle-es6.js"></script> 
+	<script nomodule src="bundle-es5.js"></script>
+	<style>
+		body {
+			font-size: 1.2rem;
+			background-color: #dedede;
+		}
+		main {
+			margin: 2em auto;
+			max-width: 800px;
+		}
+		li {
+			margin: 0.7rem auto;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<h1>testing rollup</h1>
+
+		<h2>dynamic status:</h2>
+		<ol id="status">
+			<li>loading</li>
+		</ol>
+
+		<h2>why?</h2>
+
+		<ol>
+			<li>We know we want to be writing ES6-style modules for the benefits of future-proofing, and our own sanity...</li>
+			<li>Whilst writing lovely modules, we still need to bundle/concat our ES6 into one file (until we can use HTTP2 everywhere), as we do not want
+				one HTTP request per module file for performance reasons.</li>
+			<li>While <a href="https://caniuse.com/#feat=es6-module">ES6-style native support is getting good</a> (Edge, Chrome, Safari, a lot of mobiles), it seems compelling to have two output bundles&mdash;native modules for the newer clients and ES5 transpiled for the older clients. These two bundles would loaded via 
+				<code>&#x3C;script type=&#x22;module&#x22;...&#x3E;</code> & <code>&#x3C;script nomodule...&#x3E;</code> respectively, but <em>only one bundle would be loaded by any browser</em>.</li>
+			<li>We can use 'rollup.js' with the <code> --f es</code> output format option to bundle then JS files and 
+				"<a href="https://rollupjs.org/#file-o-output-file-">keep the bundle as an ES module file</a>".</li>
+			<li>We then need something to transpile that ES6 bundle down to ES5, and for that we're using 'google-closure-compiler-js' which converts from ES6 to ES5 by default.</li>
+			<li>The resultant npm script entry in our <code>package.json</code> looks like this: <code>"build": "./node_modules/rollup/bin/rollup resources/index.js --o public/bundle-es6.js --f es && ./node_modules/google-closure-compiler-js/cmd.js --warningLevel VERBOSE public/bundle-es6.js > public/bundle-es5.js"</code>
+		</ol>
+	</main>
+</body>
+</html>
