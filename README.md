@@ -12,10 +12,10 @@ A little demo of bundling source ES6 JavaScript for consumption by ES5 &amp; ES6
 
 ## to use
 
-Clone this repo then `npm i`
+Clone this repo, then: `npm i`
 
-Build the assets; `npm run build-js`
+Build the assets: `npm run build-js`
 
-Run the express server; `node app.js`
+Run the express server: `node app`
 
-Look at `http://localhost:3000/`
+[Look at `http://localhost:3000/`](http://localhost:3000/)
