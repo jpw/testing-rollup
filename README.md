@@ -16,6 +16,6 @@ Clone this repo then `npm i`
 
 Build the assets; `npm run build`
 
-Run the express server; `node index.js`
+Run the express server; `node app.js`
 
 Look at `http://localhost:3000/`
