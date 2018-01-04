@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>testing rollup</title>
-	<!-- to load modules individually (if using http2): <script type="module" src="resources/index.js"></script> -->
+	<!-- resources symlinked to test loading modules individually (if using http2): <script type="module" src="resources/index.js"></script> -->
 	<script type="module" src="js/bundle-es6.js"></script> 
 	<script nomodule src="js/bundle-es5.js"></script>
 	<style>
@@ -40,7 +40,7 @@
 			<li>We can use 'rollup.js' with the <code> --f es</code> output format option to bundle then JS files and 
 				"<a href="https://rollupjs.org/#file-o-output-file-">keep the bundle as an ES module file</a>".</li>
 			<li>We then need something to transpile that ES6 bundle down to ES5, and for that we're using 'google-closure-compiler-js' which converts from ES6 to ES5 by default.</li>
-			<li>The resultant npm script entry in our <code>package.json</code> looks like this: <code>"build": "./node_modules/rollup/bin/rollup resources/index.js --o public/bundle-es6.js --f es && ./node_modules/google-closure-compiler-js/cmd.js --warningLevel VERBOSE public/bundle-es6.js > public/bundle-es5.js"</code>
+			<li>Thereby the overall JS build npm script in our <code>package.json</code> looks like this: <code>"./node_modules/rollup/bin/rollup resources/index.js --o public/bundle-es6.js --f es && ./node_modules/google-closure-compiler-js/cmd.js --warningLevel VERBOSE public/bundle-es6.js > public/bundle-es5.js"</code>
 		</ol>
 	</main>
 </body>

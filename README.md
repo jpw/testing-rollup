@@ -1,7 +1,7 @@
 # testing-rollup
 A little demo of bundling source ES6 JavaScript for consumption by ES5 &amp; ES6 clients.
 
-## rationale 
+## Rationale 
 
 1.  We know we want to be writing ES6-style modules for the benefits of future-proofing, and our own sanity...
 2.  Whilst writing lovely modules, we still need to bundle/concat our ES6 into one file (until we can use HTTP2 everywhere), as we do not want one HTTP request per module file for performance reasons.
