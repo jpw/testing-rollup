@@ -1,4 +1,8 @@
+public/js
+
 .DS_Store
+
+# node project ignore defaults:
 
 # Logs
 logs

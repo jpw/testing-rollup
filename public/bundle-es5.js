@@ -1,1 +1,0 @@
-var a=function(){return"module A ran"},b=function(){return"module B ran"},list=document.getElementById("status"),updateStatus=function(d){var c=document.createElement("li");c.appendChild(document.createTextNode(d));list.appendChild(c)};updateStatus("index.js ran");updateStatus(a());updateStatus(b());
