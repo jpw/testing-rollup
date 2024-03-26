@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.19.2",
     "google-closure-compiler": "^20201006.0.0",
     "rollup": "^0.51.8"
   }
